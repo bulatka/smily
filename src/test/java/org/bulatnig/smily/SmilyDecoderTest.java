@@ -33,4 +33,11 @@ public class SmilyDecoderTest {
         assertEquals(result, "\n\n");
     }
 
+    @Test
+    public void ignoreNewLineCommandAfterLF() {
+        String result = decoder.decode("\n;");
+
+        assertEquals(result, "\n");
+    }
+
 }

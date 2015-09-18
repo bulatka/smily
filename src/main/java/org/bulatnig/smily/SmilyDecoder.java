@@ -4,7 +4,7 @@ public class SmilyDecoder {
 
     public String decode(String data) {
         StringBuilder totalBuilder = new StringBuilder();
-        StringBuilder lineBuilder = null;
+        StringBuilder lineBuilder = new StringBuilder();
         int cur = 0;
         for (int i = 0; i < data.length(); i++) {
             char in = data.charAt(i);
@@ -15,19 +15,19 @@ public class SmilyDecoder {
                         totalBuilder.append(lineBuilder);
                     }
                     totalBuilder.append("\n");
-                    lineBuilder = null;
+                    lineBuilder = new StringBuilder();
                     cur = 0;
                     break;
                 case Command.NEW_LINE:
                     if (cur != 0) {
                         lineBuilder.append((char) cur);
-                        lineBuilder.append(SmilyEncoder.LF);
                     }
-                    if (lineBuilder != null) {
-                        totalBuilder.append(lineBuilder);
+                    totalBuilder.append(lineBuilder);
+                    if (i != 0 && SmilyEncoder.LF != data.charAt(i-1)) {
+                        totalBuilder.append("\n");
                     }
-                    cur = 0;
                     lineBuilder = new StringBuilder();
+                    cur = 0;
                     break;
                 case Command.INCREMENT:
                     cur++;

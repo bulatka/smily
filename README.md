@@ -6,7 +6,7 @@ Language rules:
 - put OUTPUT after each character
 - don't put OUTPUT at the end of line
 - new line starts with NEW_LINE
-- CRLF and LF encoded and decoded as is
+- CRLF and LF encoded and decoded as LF
 - NEW_LINE decoded as LF
 
 Example execution:

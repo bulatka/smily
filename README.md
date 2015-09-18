@@ -1,5 +1,5 @@
 # smily
-Language greatly inspired by Brainfuck
+Language greatly inspired by Brainfuck and designed just for fun! ;)
 
 Language rules:
 - @see org.bulatnig.smily.Command for list of available commands
